@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DataBaseSample.iml" filepath="$PROJECT_DIR$/DataBaseSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kitchen Assist/Kitchen Assist.iml" filepath="$PROJECT_DIR$/Kitchen Assist/Kitchen Assist.iml" />
+    </modules>
+  </component>
+</project>
+
