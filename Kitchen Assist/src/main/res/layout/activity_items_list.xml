@@ -40,6 +40,24 @@
             android:id="@+id/field_show_item_num"/>
     </TableRow>
 
+    <TableRow>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/field_item_reserve_time"
+            android:textSize="10pt"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="    "
+            android:textSize="10pt"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10pt"
+            android:id="@+id/field_show_item_remain"/>
+    </TableRow>
+
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">

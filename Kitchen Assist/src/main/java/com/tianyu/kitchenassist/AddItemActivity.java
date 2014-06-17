@@ -31,10 +31,12 @@ public class AddItemActivity extends Activity {
         KitchenItem item = new KitchenItem();
         EditText item_name = (EditText) findViewById(R.id.item_name);
         EditText item_num = (EditText) findViewById(R.id.item_number);
+        EditText item_remain = (EditText) findViewById(R.id.item_remain);
         switch (view.getId()) {
             case R.id.button_add:
                 item.item_name = item_name.getText().toString();
                 item.item_num = Integer.parseInt(item_num.getText().toString());
+                item.item_remain = Integer.parseInt(item_remain.getText().toString());
                 datasource.createItem(item);
                 break;
         }

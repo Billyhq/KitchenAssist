@@ -3,8 +3,10 @@ package com.tianyu.kitchenassist;
 /**
  * Created by Administrator on 14-6-1.
  */
+import android.database.Cursor;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ public class ItemsListActivity extends Activity {
     private List<KitchenItem> values;
     private int index = 0;
     private ItemsDataSource datasource;
+    private int position;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,31 @@ public class ItemsListActivity extends Activity {
         datasource.open();
 
         values = datasource.getAllItems();
+
+        Bundle bundle = this.getIntent().getExtras();
+        if( bundle == null )
+            Log.w("KA", "no bundle");
+        else
+        {
+            item = new KitchenItem();
+            item.id = this.getIntent().getExtras().getInt("com.tianyu.com.EXTRA_ITEM_ID");
+            item.item_name = this.getIntent().getExtras().getString("com.tianyu.com.EXTRA_ITEM_NAME");
+            item.item_num = this.getIntent().getExtras().getInt("com.tianyu.com.EXTRA_ITEM_NUM");
+            item.item_remain = this.getIntent().getExtras().getInt("com.tianyu.com.EXTRA_ITEM_REMAIN");
+            //position = this.getIntent().getExtras().getInt("com.tianyu.com.EXTRA_POSITION");
+            //Log.w( "KA", "get position is" + position );
+            //Cursor cursor = datasource.getCursor();
+            //if(cursor.moveToPosition(position))
+            //{
+                TextView item_name = (TextView) findViewById(R.id.field_show_item_name);
+                TextView item_num = (TextView) findViewById(R.id.field_show_item_num);
+                TextView item_remain = (TextView) findViewById(R.id.field_show_item_remain);
+                item_name.setText(item.item_name);
+                item_num.setText("" + item.item_num);
+                item_remain.setText("" + item.item_remain);
+            //}
+            //cursor.close();
+        }
     }
 
     @Override

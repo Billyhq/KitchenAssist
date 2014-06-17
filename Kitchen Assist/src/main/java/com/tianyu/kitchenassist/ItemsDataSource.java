@@ -31,20 +31,21 @@ public class ItemsDataSource {
         dbHelper.close();
     }
 
-    public KitchenItem createItem(KitchenItem item) {
+    public void createItem(KitchenItem item) {
         ContentValues values = new ContentValues();
         values.put(KitchenSQLiteHelper.COLUMN_ITEM_NAME, item.item_name);
         values.put(KitchenSQLiteHelper.COLUMN_ITEM_NUM, item.item_num);
         values.put(KitchenSQLiteHelper.COLUMN_ITEM_REMAIN, item.item_remain);
-        long insertId = database.insert(KitchenSQLiteHelper.TABLE_ITEMS, null,
-                values);
-        Cursor cursor = database.query(KitchenSQLiteHelper.TABLE_ITEMS,
-                allColumns, KitchenSQLiteHelper.ITEM_ID + " = " + insertId, null,
-                null, null, null);
-        cursor.moveToFirst();
-        KitchenItem newItem = cursorToItem(cursor);
-        cursor.close();
-        return newItem;
+        database.insert(KitchenSQLiteHelper.TABLE_ITEMS, null, values);
+        //long insertId = database.insert(KitchenSQLiteHelper.TABLE_ITEMS, null,
+        //        values);
+        //Cursor cursor = database.query(KitchenSQLiteHelper.TABLE_ITEMS,
+        //        allColumns, KitchenSQLiteHelper.ITEM_ID + " = " + insertId, null,
+        //        null, null, null);
+        //cursor.moveToFirst();
+        //KitchenItem newItem = cursorToItem(cursor);
+        //cursor.close();
+        //return newItem;
     }
 
     public void deleteItem(KitchenItem item) {
@@ -73,8 +74,16 @@ public class ItemsDataSource {
 
     public Cursor getCursor() {
         Cursor cursor = database.query(KitchenSQLiteHelper.TABLE_ITEMS,
-                allColumns, null, null, null, null, null);
+                allColumns, null, null, null, null, "item_remain");  //ordered by item_remain
 
+        cursor.moveToFirst();
+        return cursor;
+    }
+
+    public Cursor getSpecificCursor( int id ) {
+        Cursor cursor = database.query(KitchenSQLiteHelper.TABLE_ITEMS,
+                        allColumns, KitchenSQLiteHelper.ITEM_ID + " = " + id, null,
+                        null, null, null);
         cursor.moveToFirst();
         return cursor;
     }
