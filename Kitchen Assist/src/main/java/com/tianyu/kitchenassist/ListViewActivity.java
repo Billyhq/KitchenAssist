@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,7 +34,12 @@ public class ListViewActivity extends ListActivity {
         //int[] to = {R.id.itemNameEntryText};
         int[] to = {android.R.id.text1};
         //SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.activity_list_view, cursor, from, to);
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,  android.R.layout.simple_list_item_checked, cursor, from, to);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,  android.R.layout.simple_list_item_checked, cursor, from, to) {
+            @Override
+            public boolean hasStableIds () {
+                return true;
+            }
+        };
         setListAdapter(adapter);
     }
 
@@ -62,10 +68,23 @@ public class ListViewActivity extends ListActivity {
                 case R.id.delete:
                     Toast.makeText(ListViewActivity.this, "删除了" + getListView().getCheckedItemCount() +
                             "件物品", Toast.LENGTH_SHORT).show();
-                    mode.finish();
                     long []ids = getListView().getCheckedItemIds();
+                    Log.w("KA", "chosen id size is " + ids.length);
                     for( int i = 0; i < ids.length; i++ )
                         Log.w("KA", "chosen id is " + ids[i]);
+                    /*
+                    SparseBooleanArray checkedItems = getListView().getCheckedItemPositions();
+                    for( int i = 0; i < checkedItems.size(); i++ )
+                    {
+                        if (checkedItems.valueAt(i))
+                        {
+                            String chosen_item = getListView().getAdapter().getItem(checkedItems.keyAt(i)).toString();
+                            getListView().getAdapter().getItem(checkedItems.keyAt(i));
+                            getString
+                            Log.w("KA", "chosen id is " + chosen_item);
+                        }
+                    }*/
+                    mode.finish();
                     break;
                 default:
                     Toast.makeText(ListViewActivity.this, "Clicked " + item.getTitle(),
