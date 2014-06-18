@@ -5,4 +5,8 @@
         android:id="@+id/itemNameEntryText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <TextView android:text="@+id/itemIdEntryText"
+        android:id="@+id/itemIdEntryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

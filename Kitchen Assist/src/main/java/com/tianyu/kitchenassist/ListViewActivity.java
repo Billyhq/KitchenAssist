@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +17,8 @@ import android.widget.Toast;
 public class ListViewActivity extends ListActivity {
     private ItemsDataSource datasource;
     private Cursor cursor;
+    private KitchenItem tmpItem = new KitchenItem();
+    private SimpleCursorAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +32,8 @@ public class ListViewActivity extends ListActivity {
 
         cursor = datasource.getCursor();
         String[] from = { "item_name" };
-        //int[] to = {R.id.itemNameEntryText};
         int[] to = {android.R.id.text1};
-        //SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.activity_list_view, cursor, from, to);
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,  android.R.layout.simple_list_item_checked, cursor, from, to) {
+        adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_checked, cursor, from, to) {
             @Override
             public boolean hasStableIds () {
                 return true;
@@ -71,19 +70,15 @@ public class ListViewActivity extends ListActivity {
                     long []ids = getListView().getCheckedItemIds();
                     Log.w("KA", "chosen id size is " + ids.length);
                     for( int i = 0; i < ids.length; i++ )
-                        Log.w("KA", "chosen id is " + ids[i]);
-                    /*
-                    SparseBooleanArray checkedItems = getListView().getCheckedItemPositions();
-                    for( int i = 0; i < checkedItems.size(); i++ )
                     {
-                        if (checkedItems.valueAt(i))
-                        {
-                            String chosen_item = getListView().getAdapter().getItem(checkedItems.keyAt(i)).toString();
-                            getListView().getAdapter().getItem(checkedItems.keyAt(i));
-                            getString
-                            Log.w("KA", "chosen id is " + chosen_item);
-                        }
-                    }*/
+                        Log.w("KA", "chosen id is " + ids[i]);
+                        tmpItem.id = ids[i];
+                        datasource.deleteItem( tmpItem );
+                    }
+                    //update the listview
+                    cursor = datasource.getCursor();
+                    adapter.changeCursor(cursor);
+                    adapter.notifyDataSetChanged();
                     mode.finish();
                     break;
                 default:
