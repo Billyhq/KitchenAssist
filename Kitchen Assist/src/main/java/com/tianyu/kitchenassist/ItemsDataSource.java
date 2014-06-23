@@ -55,6 +55,16 @@ public class ItemsDataSource {
                 + " = " + id, null);
     }
 
+    //only update the remain field
+    public void updateItem(KitchenItem item) {
+        ContentValues values = new ContentValues();
+        long id = item.getId();
+
+        Log.w("KA", "id is " + id + "new remain is " + item.item_remain);
+        values.put(KitchenSQLiteHelper.COLUMN_ITEM_REMAIN, item.item_remain);
+        database.update(KitchenSQLiteHelper.TABLE_ITEMS, values, KitchenSQLiteHelper.ITEM_ID + " = " + id, null);
+    }
+
     public List<KitchenItem> getAllItems() {
         List<KitchenItem> items = new ArrayList<KitchenItem>();
 

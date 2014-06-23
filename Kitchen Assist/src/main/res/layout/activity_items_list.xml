@@ -78,4 +78,17 @@
             android:layout_column="3"
             android:onClick="onClick"/>
     </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新时间"
+            android:id="@+id/button_update_time"
+            android:layout_column="0"
+            android:onClick="onClick" />
+    </TableRow>
 </TableLayout>

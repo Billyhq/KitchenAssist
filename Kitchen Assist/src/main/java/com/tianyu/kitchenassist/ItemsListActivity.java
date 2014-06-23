@@ -3,6 +3,7 @@ package com.tianyu.kitchenassist;
 /**
  * Created by Administrator on 14-6-1.
  */
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.app.Activity;
@@ -89,6 +90,14 @@ public class ItemsListActivity extends Activity {
                     item_name.setText(item.item_name);
                     item_num.setText("" + item.item_num);
                 }
+                break;
+            case R.id.button_update_time:
+                KitchenItem newItem = new KitchenItem();
+                item = values.get(index);
+
+                newItem.id = item.id;
+                newItem.item_remain = 100;
+                datasource.updateItem(newItem);
                 break;
         }
     }

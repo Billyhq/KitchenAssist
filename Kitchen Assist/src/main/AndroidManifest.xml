@@ -46,6 +46,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
+
+        <!-- Alarm Samples -->
+        <receiver android:name=".OneShotAlarm" android:process=":remote" />
     </application>
 
 </manifest>
