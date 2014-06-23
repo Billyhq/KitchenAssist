@@ -59,10 +59,13 @@ public class ItemsDataSource {
     public void updateItem(KitchenItem item) {
         ContentValues values = new ContentValues();
         long id = item.getId();
+        String[] whereArgs = new String[] {String.valueOf(id)};
 
         Log.w("KA", "id is " + id + "new remain is " + item.item_remain);
         values.put(KitchenSQLiteHelper.COLUMN_ITEM_REMAIN, item.item_remain);
-        database.update(KitchenSQLiteHelper.TABLE_ITEMS, values, KitchenSQLiteHelper.ITEM_ID + " = " + id, null);
+        //database.update(KitchenSQLiteHelper.TABLE_ITEMS, values, "_id=?", whereArgs);
+        database.update(KitchenSQLiteHelper.TABLE_ITEMS, values, KitchenSQLiteHelper.ITEM_ID
+                + " = " + id, null);
     }
 
     public List<KitchenItem> getAllItems() {
