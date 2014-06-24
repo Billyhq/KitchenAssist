@@ -32,10 +32,18 @@ public class KitchenSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE);
+        Log.w("KA", "SQLiteOpenHelper onCreate");
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase database) {
+        super.onOpen(database);
+        Log.w("KA", "SQLiteOpenHelper onOpen");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.w("KA", "SQLiteOpenHelper onUpgrade");
         Log.w(KitchenSQLiteHelper.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "
                         + newVersion + ", which will destroy all old data");

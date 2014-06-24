@@ -114,9 +114,8 @@ public class ListViewActivity extends ListActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        datasource.close();
+    protected void onStop() {
+        super.onStop();
         cursor.close();
     }
 

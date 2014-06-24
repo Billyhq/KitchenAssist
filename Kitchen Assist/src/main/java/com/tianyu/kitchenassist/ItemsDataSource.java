@@ -37,15 +37,6 @@ public class ItemsDataSource {
         values.put(KitchenSQLiteHelper.COLUMN_ITEM_NUM, item.item_num);
         values.put(KitchenSQLiteHelper.COLUMN_ITEM_REMAIN, item.item_remain);
         database.insert(KitchenSQLiteHelper.TABLE_ITEMS, null, values);
-        //long insertId = database.insert(KitchenSQLiteHelper.TABLE_ITEMS, null,
-        //        values);
-        //Cursor cursor = database.query(KitchenSQLiteHelper.TABLE_ITEMS,
-        //        allColumns, KitchenSQLiteHelper.ITEM_ID + " = " + insertId, null,
-        //        null, null, null);
-        //cursor.moveToFirst();
-        //KitchenItem newItem = cursorToItem(cursor);
-        //cursor.close();
-        //return newItem;
     }
 
     public void deleteItem(KitchenItem item) {
@@ -66,23 +57,6 @@ public class ItemsDataSource {
         //database.update(KitchenSQLiteHelper.TABLE_ITEMS, values, "_id=?", whereArgs);
         database.update(KitchenSQLiteHelper.TABLE_ITEMS, values, KitchenSQLiteHelper.ITEM_ID
                 + " = " + id, null);
-    }
-
-    public List<KitchenItem> getAllItems() {
-        List<KitchenItem> items = new ArrayList<KitchenItem>();
-
-        Cursor cursor = database.query(KitchenSQLiteHelper.TABLE_ITEMS,
-                allColumns, null, null, null, null, null);
-
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            KitchenItem item = cursorToItem(cursor);
-            items.add(item);
-            cursor.moveToNext();
-        }
-        // make sure to close the cursor
-        cursor.close();
-        return items;
     }
 
     public Cursor getCursor() {

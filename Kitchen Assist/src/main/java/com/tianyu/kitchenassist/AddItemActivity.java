@@ -24,7 +24,7 @@ public class AddItemActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        datasource.close();
+        //datasource.close();
     }
 
     public void onClick(View view) {
