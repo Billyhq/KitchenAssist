@@ -28,10 +28,6 @@ public class MainActivity extends Activity {
                 intent = new Intent(this, AddItemActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.item_list:
-                intent = new Intent(this, ItemsListActivity.class);
-                startActivity(intent);
-                break;
             case R.id.button_list_view:
                 intent = new Intent(this, ListViewActivity.class);
                 startActivity(intent);

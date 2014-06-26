@@ -35,5 +35,6 @@ public class OneShotAlarm extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         Toast.makeText(context, "message received", Toast.LENGTH_SHORT).show();
+        intent = new Intent(this, ListViewActivity.class);
     }
 }
