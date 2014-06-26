@@ -69,6 +69,5 @@ public class OneShotAlarm extends BroadcastReceiver
         builder.setDefaults(builder.build().DEFAULT_ALL);
         NotificationManager nm = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);
         nm.notify("direct_tag", R.string.notification, builder.build());
-        intent = new Intent(this, ListViewActivity.class);
     }
 }
