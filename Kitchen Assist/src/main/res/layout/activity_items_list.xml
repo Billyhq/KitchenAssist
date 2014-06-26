@@ -14,12 +14,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="    "
-            android:textSize="10pt"/>
+            android:textSize="10pt"
+            android:layout_column="2" />
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="10pt"
-            android:id="@+id/field_show_item_name" />
+            android:id="@+id/field_show_item_name"
+            android:layout_column="3" />
     </TableRow>
 
     <TableRow>
@@ -32,12 +34,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="    "
-            android:textSize="10pt"/>
+            android:textSize="10pt"
+            android:layout_column="2" />
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="10pt"
-            android:id="@+id/field_show_item_num"/>
+            android:id="@+id/field_show_item_num"
+            android:layout_column="3" />
     </TableRow>
 
     <TableRow>
@@ -50,33 +54,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="    "
-            android:textSize="10pt"/>
+            android:textSize="10pt"
+            android:layout_column="2" />
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="10pt"
-            android:id="@+id/field_show_item_remain"/>
-    </TableRow>
-
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_next"
-            android:id="@+id/button_next"
-            android:layout_column="0"
-            android:onClick="onClick"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_previous"
-            android:id="@+id/button_previous"
-            android:layout_column="3"
-            android:onClick="onClick"/>
+            android:id="@+id/field_show_item_remain"
+            android:layout_column="3" />
     </TableRow>
 
     <TableRow
@@ -90,5 +75,53 @@
             android:id="@+id/button_update_time"
             android:layout_column="0"
             android:onClick="onClick" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
     </TableRow>
 </TableLayout>

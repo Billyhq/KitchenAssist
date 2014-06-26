@@ -113,6 +113,16 @@ public class ListViewActivity extends ListActivity {
         }
     }
 
+    /*the database may be changed in other activity, so when come back to this activity,
+      update the listview*/
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        cursor = datasource.getCursor();
+        adapter.changeCursor(cursor);
+        adapter.notifyDataSetChanged();
+    }
+
     @Override
     protected void onStop() {
         super.onStop();

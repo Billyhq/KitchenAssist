@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Kitchen Assist.iml" filepath="$PROJECT_DIR$/Kitchen Assist.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Kitchen Assist/Kitchen Assist-Kitchen Assist.iml" filepath="$PROJECT_DIR$/Kitchen Assist/Kitchen Assist-Kitchen Assist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kitchen Assist/Kitchen Assist.iml" filepath="$PROJECT_DIR$/Kitchen Assist/Kitchen Assist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KitchenAssist.iml" filepath="$PROJECT_DIR$/KitchenAssist.iml" />
     </modules>
   </component>
 </project>

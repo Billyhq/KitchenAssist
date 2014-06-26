@@ -37,6 +37,7 @@ public class OneShotAlarm extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         Toast.makeText(context, "message received", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
         Notification.Builder builder = new Notification.Builder(context)
                 .setTicker("主人，有食品要过期了")
                 .setSmallIcon(android.R.drawable.stat_notify_chat)
@@ -51,5 +52,8 @@ public class OneShotAlarm extends BroadcastReceiver
         builder.setDefaults(builder.build().DEFAULT_ALL);
         NotificationManager nm = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);
         nm.notify("direct_tag", R.string.notification, builder.build());
+=======
+        intent = new Intent(this, ListViewActivity.class);
+>>>>>>> 9a0ce87ed700bf3c27f3eee2c98f0c8ebf786709
     }
 }
