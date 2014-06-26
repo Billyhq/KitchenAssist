@@ -16,6 +16,24 @@ package com.tianyu.kitchenassist;
  * limitations under the License.
  */
 import android.app.NotificationManager;
+package com.tianyu.kitchenassist;
+
+/*
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import android.app.NotificationManager;
 import android.app.Notification;
 import android.app.TaskStackBuilder;
 import android.content.Context;
@@ -37,7 +55,6 @@ public class OneShotAlarm extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         Toast.makeText(context, "message received", Toast.LENGTH_SHORT).show();
-<<<<<<< HEAD
         Notification.Builder builder = new Notification.Builder(context)
                 .setTicker("主人，有食品要过期了")
                 .setSmallIcon(android.R.drawable.stat_notify_chat)
@@ -52,8 +69,6 @@ public class OneShotAlarm extends BroadcastReceiver
         builder.setDefaults(builder.build().DEFAULT_ALL);
         NotificationManager nm = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);
         nm.notify("direct_tag", R.string.notification, builder.build());
-=======
         intent = new Intent(this, ListViewActivity.class);
->>>>>>> 9a0ce87ed700bf3c27f3eee2c98f0c8ebf786709
     }
 }
